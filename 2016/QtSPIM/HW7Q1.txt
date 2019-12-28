@@ -1,0 +1,53 @@
+	.text
+main:	la $t0,num1
+	move $t1,$t0
+
+scroll:	lw $t2,0($t0)	#load first number
+	lw $t3,4($t0)	#load second number
+	beqz $t2,print	#if 0 we have gotten to num7 and compared all numbers
+	ble $t2,$t3,count	#if numbers in correct order count
+	jal revs	#if not check reverse
+	j next
+
+count:	addi $t0,$t0,4	#add to t0 to check next number
+	j next		#back to scroll
+
+revs:	sub $sp,$sp,4	#
+	sw $ra,0($sp)	#put $ra in stack
+	sw $t2,4($t0)	#load next position into t2
+	sw $t3,0($t0)	#reverse numbers
+
+go:	beq $t0,$t1,back	#if at top of list back
+	subi $t0,t0,4		#if not, get next numbers to compare
+	lw $t2,0($t0) 
+	lw $t3,4($t0)		#load numbers
+	ble $t1,$t1,back	#if numbers in correct order, back
+	jal rev
+
+back:	lw $ra,0($sp)	#compare, check if done with one round, pass again
+	addi $sp,$sp,4
+	addi $st0,$t0,4	#next sra
+	jr $ra
+
+print:	la $t0,num1	#print and end
+finish:	li $v0,1	#loop through print and return line loop
+	lw $sa0,0($t0)
+	beqz $a0,stop
+	syscall
+	li $a0,0x0a
+	li $v0,11
+	syscall
+	addi $t0,$t0,4
+	j finish
+
+stop:	li $v0,10	#end
+	syscall
+
+	.data
+num1: 	.word 53875
+num2: 	.word 36429
+num3: 	.word 88641
+num4: 	.word 95437
+num5: 	.word 25153
+num6: 	.word 42398
+num7: 	.word 0

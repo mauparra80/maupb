@@ -1,0 +1,84 @@
+	.text
+main:	la $t6,str2
+	sub $t6,$t6,1
+	la $t0,str
+	la $t7,str
+
+input:	li $v0,4
+	la $a0,prompt
+	syscall
+	la $a0,print
+	syscall
+	la $a0,cont
+	syscall
+
+	li $v0,8
+	la $a0,buffer
+	li $a1,2
+	syscall
+	move $t5,$v0
+	#li $v0,4
+	#li $a0,0x0a
+	#syscall
+	lb $t5,0($t5)
+	beq $t5,80,p
+	beq $t5,78,done
+	bge $t5,97,check2
+	li $v0,4
+	la $a0,error
+	syscall
+	j input
+
+check2:	ble $t5,122,pre
+	li $v0,4
+	la $a0,error
+	syscall
+	j input
+
+p:	
+	li $v0,4
+	la $a0,str
+	syscall
+	j input
+
+pre:	sb $t5,0($t6)
+	addi $t6,$t6,1
+comp:  	lb $t1,0($t0)
+	lb $t2,1($t0)
+	beqz $t2,input
+	ble $t1,$t2,count
+	jal rev
+	j comp
+count:	addi $t0,$t0,1
+	j comp
+
+rev: 	sub $sp,$sp,4 		# Store contents of $ra on the stack
+	sw $ra,($sp) 		# Decrement stack pointer.
+	sb $t1,1($t0) 		# Exchange two character positions
+	sb $t2,0($t0)
+	beq $t0,$t7,goback 	# If at first position in the string, done
+	sub $t0,$t0,1 		# Decrement the letter pointer.
+	lb $t1,0($t0) 		# Compare letter to next "upstream" letter
+	lb $t2,1($t0)
+	ble $t1,$t2,goback 	# If letter is properly placed, done
+	jal rev 		# Not done yet; move back another position
+
+goback: addi $t0,$t0,1 		# Reverse done; move back to current position
+	lw $ra,($sp)
+	addi $sp,$sp,4
+	jr $ra
+	
+done:	li $v0,10
+	syscall
+
+
+	.data
+str:	.asciiz "abcdefghijklmnopqrstuvwxyz"
+str2:	.space 30
+prompt:	.asciiz "Please enter a lower case letter to be alphabatized \n"
+print:	.asciiz "press (P) if you wish to print the current string \n"
+cont:	.asciiz	"Press (N) to quit the program \n"
+error:	.asciiz "ERROR: only enter lower case letters"
+buffer:	.space 2
+
+

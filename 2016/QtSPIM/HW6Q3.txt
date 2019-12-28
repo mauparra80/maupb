@@ -1,0 +1,30 @@
+	.text
+main:	la $t1,num1	#load first word
+	li $t2,0	#set counter
+
+stack:	lw $t0,0($t1)	#load content of num1 to t0
+	sub $sp,$sp,4	#push the word on to the stack
+	sw $t0,0($sp)
+	addi $t2,$t2,1	#add counter
+	beq $t2,4,print	#exit if counter =4
+	addi $t1,$t1,4	# go to next word
+	j stack
+
+print:	lw $a0,0($sp)	#pop out of stack and print
+	addi $sp,$sp,4
+	li $v0,11
+	syscall
+	sub $t2,$t2,1	#exit once counter reaches 0
+	beqz $t2,done
+	j print
+
+done:	li $v0,10
+	syscall
+
+
+
+	.data
+num1:	.word 0x21
+num2:	.word 0x44
+num3:	.word 0x54
+num4:	.word 0x55

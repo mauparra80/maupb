@@ -1,0 +1,98 @@
+#include <msp430.h> 
+#include "HAL_AppUart.h"
+#include <stdint.h>
+#include "string.h"
+#include "stdio.h"
+
+//Global Variables that can be changed without being passed//
+int aimCount=45;//neutral position for aim
+int trigCount=35;
+int initialCount=0;
+
+//Both Motors are connected to 3.3V power source
+//Trigger Motor is connected to P3.5
+//Aim Motor is connected to P7.4
+//Winding Pulse is connected to P1.5
+
+int main(void)
+{
+    WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
+    AppUart_init();
+
+    //Initialize Aiming Motor//////////////////
+    P7DIR |= BIT4;
+    P7SEL |= BIT4;
+    TB0CCR0=511; // ->512-1
+    TB0CCTL2= OUTMOD_7; //CCR2 s/r
+    TB0CCR2= aimCount;
+    TB0CTL= TASSEL_1 + MC_1; //ACLK, upmode
+    //Initialize Trigger Motor
+    P3DIR |= BIT5;
+    P3SEL |= BIT5;
+    TB0CCTL5= OUTMOD_7;
+    TB0CCR5=trigCount;
+    ///////////////////////////////
+    P1DIR |= BIT5;
+    
+
+
+    _BIS_SR(GIE);
+
+    while(1){
+        //continually polling for updated values
+        TBCCR2=aimCount;
+        TBCCR5=trigCount;
+    }
+
+    return 0;
+}
+
+#pragma vector=TIMER1_A0_VECTOR//Timer interupt, duh
+interrupt void TimerA(void){
+    TB0CCR0 +=50000;
+}
+
+#pragma vector=USCI_A1_VECTOR//UART and Servo interrupt
+__interrupt void USCI_A1_ISR(void){
+
+    //Menu Initialization//////////////
+    if(initialCount=0){
+        //Print out welcome bitch blah blah
+        initialCount++;
+    }
+    while(!(UCA1IFG & UCTXIFG));    // Check Tx buffer is ready
+    UCA1TXBUF = UCA1RXBUF; // Echo Tx->Rx character
+
+    //////////Control Keys//////////////////////
+    if(UCA1RXBUF=='a'){
+        UCA1TXBUF ='-';
+        //aiming motor
+        if(aimCount<59){
+        aimCount+=2;
+        }
+    }
+    if(UCA1RXBUF=='d'){
+        UCA1TXBUF ='+';
+        //aiming motor
+        if(aimCount >34){
+            aimCount-=2;
+        }
+    }
+    if(UCA1RXBUF=='s'){
+        UCA1TXBUF ='#';
+        //trigger motor
+        trigCount=35;
+    }
+    if(UCA1RXBUF=='r'){
+        UCA1TXBUF ='^';
+        //trigger motor
+        trigCount=65;
+    }
+    if(UCA1RXBUF=='w'){
+        P1OUT^=BIT5;
+        _delay_cycles(1000000);
+        P1OUT^=BIT5;
+    }
+
+}
+
