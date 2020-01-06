@@ -1,0 +1,71 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2005 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 8.1i
+//  \   \         Application : sch2verilog
+//  /   /         Filename : mux4_sch.vf
+// /___/   /\     Timestamp : 02/10/2007 17:36:03
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx\bin\nt\sch2verilog.exe -intstyle ise -family spartan2 -w C:/XilinxWorks/toyprocessor_tt/mux4_sch.sch mux4_sch.vf
+//Design Name: mux4_sch
+//Device: spartan2
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module mux4_sch(c0, 
+                c1, 
+                in0, 
+                in1, 
+                in2, 
+                in3, 
+                mux_out);
+
+    input c0;
+    input c1;
+    input in0;
+    input in1;
+    input in2;
+    input in3;
+   output mux_out;
+   
+   wire XLXN_1;
+   wire XLXN_2;
+   wire XLXN_4;
+   wire XLXN_5;
+   wire XLXN_6;
+   wire XLXN_7;
+   
+   AND3 XLXI_1 (.I0(XLXN_6), 
+                .I1(XLXN_7), 
+                .I2(in0), 
+                .O(XLXN_1));
+   AND3 XLXI_2 (.I0(c0), 
+                .I1(XLXN_7), 
+                .I2(in1), 
+                .O(XLXN_2));
+   AND3 XLXI_3 (.I0(XLXN_6), 
+                .I1(c1), 
+                .I2(in2), 
+                .O(XLXN_4));
+   AND3 XLXI_4 (.I0(c0), 
+                .I1(c1), 
+                .I2(in3), 
+                .O(XLXN_5));
+   OR4 XLXI_5 (.I0(XLXN_5), 
+               .I1(XLXN_4), 
+               .I2(XLXN_2), 
+               .I3(XLXN_1), 
+               .O(mux_out));
+   INV XLXI_6 (.I(c0), 
+               .O(XLXN_6));
+   INV XLXI_7 (.I(c1), 
+               .O(XLXN_7));
+endmodule

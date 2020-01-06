@@ -1,0 +1,2 @@
+sch2verilog -intstyle ise -family spartan2e   -w "C:/XilinxWorks/toyprocessor_tt/seven_seg_control_sch.sch" seven_seg_control_sch.vf
+sch2verilog -intstyle ise -family spartan2   -w "C:/XilinxWorks/toyprocessor_tt/seven_seg_control_sch.sch" seven_seg_control_sch.vf

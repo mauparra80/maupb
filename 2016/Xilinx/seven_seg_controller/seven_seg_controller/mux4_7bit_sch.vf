@@ -1,0 +1,89 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2005 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 8.1i
+//  \   \         Application : sch2verilog
+//  /   /         Filename : mux4_7bit_sch.vf
+// /___/   /\     Timestamp : 02/10/2007 17:35:49
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx\bin\nt\sch2verilog.exe -intstyle ise -family spartan2 -w C:/XilinxWorks/toyprocessor_tt/mux4_7bit_sch.sch mux4_7bit_sch.vf
+//Design Name: mux4_7bit_sch
+//Device: spartan2
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module mux4_7bit_sch(c0, 
+                     c1, 
+                     in0, 
+                     in1, 
+                     in2, 
+                     in3, 
+                     mux_out);
+
+    input c0;
+    input c1;
+    input [6:0] in0;
+    input [6:0] in1;
+    input [6:0] in2;
+    input [6:0] in3;
+   output [6:0] mux_out;
+   
+   
+   mux4_sch XLXI_1 (.c0(c0), 
+                    .c1(c1), 
+                    .in0(in0[5]), 
+                    .in1(in1[5]), 
+                    .in2(in2[5]), 
+                    .in3(in3[5]), 
+                    .mux_out(mux_out[5]));
+   mux4_sch XLXI_2 (.c0(c0), 
+                    .c1(c1), 
+                    .in0(in0[6]), 
+                    .in1(in1[6]), 
+                    .in2(in2[6]), 
+                    .in3(in3[6]), 
+                    .mux_out(mux_out[6]));
+   mux4_sch XLXI_3 (.c0(c0), 
+                    .c1(c1), 
+                    .in0(in0[3]), 
+                    .in1(in1[3]), 
+                    .in2(in2[3]), 
+                    .in3(in3[3]), 
+                    .mux_out(mux_out[3]));
+   mux4_sch XLXI_4 (.c0(c0), 
+                    .c1(c1), 
+                    .in0(in0[4]), 
+                    .in1(in1[4]), 
+                    .in2(in2[4]), 
+                    .in3(in3[4]), 
+                    .mux_out(mux_out[4]));
+   mux4_sch XLXI_5 (.c0(c0), 
+                    .c1(c1), 
+                    .in0(in0[1]), 
+                    .in1(in1[1]), 
+                    .in2(in2[1]), 
+                    .in3(in3[1]), 
+                    .mux_out(mux_out[1]));
+   mux4_sch XLXI_6 (.c0(c0), 
+                    .c1(c1), 
+                    .in0(in0[2]), 
+                    .in1(in1[2]), 
+                    .in2(in2[2]), 
+                    .in3(in3[2]), 
+                    .mux_out(mux_out[2]));
+   mux4_sch XLXI_7 (.c0(c0), 
+                    .c1(c1), 
+                    .in0(in0[0]), 
+                    .in1(in1[0]), 
+                    .in2(in2[0]), 
+                    .in3(in3[0]), 
+                    .mux_out(mux_out[0]));
+endmodule

@@ -1,0 +1,348 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2005 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 8.1i
+//  \   \         Application : sch2verilog
+//  /   /         Filename : seven_seg_control_sch.vf
+// /___/   /\     Timestamp : 02/10/2007 17:36:06
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx\bin\nt\sch2verilog.exe -intstyle ise -family spartan2 -w C:/XilinxWorks/toyprocessor_tt/seven_seg_control_sch.sch seven_seg_control_sch.vf
+//Design Name: seven_seg_control_sch
+//Device: spartan2
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module D2_4E_MXILINX_seven_seg_control_sch(A0, 
+                                           A1, 
+                                           E, 
+                                           D0, 
+                                           D1, 
+                                           D2, 
+                                           D3);
+
+    input A0;
+    input A1;
+    input E;
+   output D0;
+   output D1;
+   output D2;
+   output D3;
+   
+   
+   AND3 I_36_30 (.I0(A1), 
+                 .I1(A0), 
+                 .I2(E), 
+                 .O(D3));
+   AND3B1 I_36_31 (.I0(A0), 
+                   .I1(A1), 
+                   .I2(E), 
+                   .O(D2));
+   AND3B1 I_36_32 (.I0(A1), 
+                   .I1(A0), 
+                   .I2(E), 
+                   .O(D1));
+   AND3B2 I_36_33 (.I0(A0), 
+                   .I1(A1), 
+                   .I2(E), 
+                   .O(D0));
+endmodule
+`timescale 1ns / 1ps
+
+module FTCE_MXILINX_seven_seg_control_sch(C, 
+                                          CE, 
+                                          CLR, 
+                                          T, 
+                                          Q);
+
+    input C;
+    input CE;
+    input CLR;
+    input T;
+   output Q;
+   
+   wire TQ;
+   
+   XOR2 I_36_32 (.I0(T), 
+                 .I1(Q), 
+                 .O(TQ));
+   FDCE I_36_35 (.C(C), 
+                 .CE(CE), 
+                 .CLR(CLR), 
+                 .D(TQ), 
+                 .Q(Q));
+   // synthesis attribute RLOC of I_36_35 is "R0C0.S0"
+   defparam I_36_35.INIT = 1'b0;
+endmodule
+`timescale 1ns / 1ps
+
+module CB16CE_MXILINX_seven_seg_control_sch(C, 
+                                            CE, 
+                                            CLR, 
+                                            CEO, 
+                                            Q, 
+                                            TC);
+
+    input C;
+    input CE;
+    input CLR;
+   output CEO;
+   output [15:0] Q;
+   output TC;
+   
+   wire T2;
+   wire T3;
+   wire T4;
+   wire T5;
+   wire T6;
+   wire T7;
+   wire T8;
+   wire T9;
+   wire T10;
+   wire T11;
+   wire T12;
+   wire T13;
+   wire T14;
+   wire T15;
+   wire XLXN_1;
+   
+   FTCE_MXILINX_seven_seg_control_sch I_Q0 (.C(C), 
+                                            .CE(CE), 
+                                            .CLR(CLR), 
+                                            .T(XLXN_1), 
+                                            .Q(Q[0]));
+   // synthesis attribute HU_SET of I_Q0 is "I_Q0_1"
+   FTCE_MXILINX_seven_seg_control_sch I_Q1 (.C(C), 
+                                            .CE(CE), 
+                                            .CLR(CLR), 
+                                            .T(Q[0]), 
+                                            .Q(Q[1]));
+   // synthesis attribute HU_SET of I_Q1 is "I_Q1_0"
+   FTCE_MXILINX_seven_seg_control_sch I_Q2 (.C(C), 
+                                            .CE(CE), 
+                                            .CLR(CLR), 
+                                            .T(T2), 
+                                            .Q(Q[2]));
+   // synthesis attribute HU_SET of I_Q2 is "I_Q2_3"
+   FTCE_MXILINX_seven_seg_control_sch I_Q3 (.C(C), 
+                                            .CE(CE), 
+                                            .CLR(CLR), 
+                                            .T(T3), 
+                                            .Q(Q[3]));
+   // synthesis attribute HU_SET of I_Q3 is "I_Q3_2"
+   FTCE_MXILINX_seven_seg_control_sch I_Q4 (.C(C), 
+                                            .CE(CE), 
+                                            .CLR(CLR), 
+                                            .T(T4), 
+                                            .Q(Q[4]));
+   // synthesis attribute HU_SET of I_Q4 is "I_Q4_7"
+   FTCE_MXILINX_seven_seg_control_sch I_Q5 (.C(C), 
+                                            .CE(CE), 
+                                            .CLR(CLR), 
+                                            .T(T5), 
+                                            .Q(Q[5]));
+   // synthesis attribute HU_SET of I_Q5 is "I_Q5_6"
+   FTCE_MXILINX_seven_seg_control_sch I_Q6 (.C(C), 
+                                            .CE(CE), 
+                                            .CLR(CLR), 
+                                            .T(T6), 
+                                            .Q(Q[6]));
+   // synthesis attribute HU_SET of I_Q6 is "I_Q6_5"
+   FTCE_MXILINX_seven_seg_control_sch I_Q7 (.C(C), 
+                                            .CE(CE), 
+                                            .CLR(CLR), 
+                                            .T(T7), 
+                                            .Q(Q[7]));
+   // synthesis attribute HU_SET of I_Q7 is "I_Q7_4"
+   FTCE_MXILINX_seven_seg_control_sch I_Q8 (.C(C), 
+                                            .CE(CE), 
+                                            .CLR(CLR), 
+                                            .T(T8), 
+                                            .Q(Q[8]));
+   // synthesis attribute HU_SET of I_Q8 is "I_Q8_8"
+   FTCE_MXILINX_seven_seg_control_sch I_Q9 (.C(C), 
+                                            .CE(CE), 
+                                            .CLR(CLR), 
+                                            .T(T9), 
+                                            .Q(Q[9]));
+   // synthesis attribute HU_SET of I_Q9 is "I_Q9_9"
+   FTCE_MXILINX_seven_seg_control_sch I_Q10 (.C(C), 
+                                             .CE(CE), 
+                                             .CLR(CLR), 
+                                             .T(T10), 
+                                             .Q(Q[10]));
+   // synthesis attribute HU_SET of I_Q10 is "I_Q10_10"
+   FTCE_MXILINX_seven_seg_control_sch I_Q11 (.C(C), 
+                                             .CE(CE), 
+                                             .CLR(CLR), 
+                                             .T(T11), 
+                                             .Q(Q[11]));
+   // synthesis attribute HU_SET of I_Q11 is "I_Q11_11"
+   FTCE_MXILINX_seven_seg_control_sch I_Q12 (.C(C), 
+                                             .CE(CE), 
+                                             .CLR(CLR), 
+                                             .T(T12), 
+                                             .Q(Q[12]));
+   // synthesis attribute HU_SET of I_Q12 is "I_Q12_12"
+   FTCE_MXILINX_seven_seg_control_sch I_Q13 (.C(C), 
+                                             .CE(CE), 
+                                             .CLR(CLR), 
+                                             .T(T13), 
+                                             .Q(Q[13]));
+   // synthesis attribute HU_SET of I_Q13 is "I_Q13_13"
+   FTCE_MXILINX_seven_seg_control_sch I_Q14 (.C(C), 
+                                             .CE(CE), 
+                                             .CLR(CLR), 
+                                             .T(T14), 
+                                             .Q(Q[14]));
+   // synthesis attribute HU_SET of I_Q14 is "I_Q14_14"
+   FTCE_MXILINX_seven_seg_control_sch I_Q15 (.C(C), 
+                                             .CE(CE), 
+                                             .CLR(CLR), 
+                                             .T(T15), 
+                                             .Q(Q[15]));
+   // synthesis attribute HU_SET of I_Q15 is "I_Q15_15"
+   AND3 I_36_3 (.I0(Q[2]), 
+                .I1(Q[1]), 
+                .I2(Q[0]), 
+                .O(T3));
+   AND2 I_36_4 (.I0(Q[1]), 
+                .I1(Q[0]), 
+                .O(T2));
+   VCC I_36_9 (.P(XLXN_1));
+   AND4 I_36_10 (.I0(Q[3]), 
+                 .I1(Q[2]), 
+                 .I2(Q[1]), 
+                 .I3(Q[0]), 
+                 .O(T4));
+   AND5 I_36_14 (.I0(Q[7]), 
+                 .I1(Q[6]), 
+                 .I2(Q[5]), 
+                 .I3(Q[4]), 
+                 .I4(T4), 
+                 .O(T8));
+   AND2 I_36_15 (.I0(Q[4]), 
+                 .I1(T4), 
+                 .O(T5));
+   AND3 I_36_19 (.I0(Q[5]), 
+                 .I1(Q[4]), 
+                 .I2(T4), 
+                 .O(T6));
+   AND4 I_36_21 (.I0(Q[6]), 
+                 .I1(Q[5]), 
+                 .I2(Q[4]), 
+                 .I3(T4), 
+                 .O(T7));
+   AND5 I_36_22 (.I0(Q[15]), 
+                 .I1(Q[14]), 
+                 .I2(Q[13]), 
+                 .I3(Q[12]), 
+                 .I4(T12), 
+                 .O(TC));
+   AND2 I_36_23 (.I0(Q[12]), 
+                 .I1(T12), 
+                 .O(T13));
+   AND3 I_36_24 (.I0(Q[13]), 
+                 .I1(Q[12]), 
+                 .I2(T12), 
+                 .O(T14));
+   AND4 I_36_25 (.I0(Q[14]), 
+                 .I1(Q[13]), 
+                 .I2(Q[12]), 
+                 .I3(T12), 
+                 .O(T15));
+   AND4 I_36_26 (.I0(Q[10]), 
+                 .I1(Q[9]), 
+                 .I2(Q[8]), 
+                 .I3(T8), 
+                 .O(T11));
+   AND3 I_36_27 (.I0(Q[9]), 
+                 .I1(Q[8]), 
+                 .I2(T8), 
+                 .O(T10));
+   AND2 I_36_28 (.I0(Q[8]), 
+                 .I1(T8), 
+                 .O(T9));
+   AND5 I_36_29 (.I0(Q[11]), 
+                 .I1(Q[10]), 
+                 .I2(Q[9]), 
+                 .I3(Q[8]), 
+                 .I4(T8), 
+                 .O(T12));
+   AND2 I_36_54 (.I0(CE), 
+                 .I1(TC), 
+                 .O(CEO));
+endmodule
+`timescale 1ns / 1ps
+
+module seven_seg_control_sch(CLK, 
+                             L, 
+                             ML, 
+                             MR, 
+                             R, 
+                             EN_L, 
+                             EN_ML, 
+                             EN_MR, 
+                             EN_R, 
+                             seven_seg_out);
+
+    input CLK;
+    input [6:0] L;
+    input [6:0] ML;
+    input [6:0] MR;
+    input [6:0] R;
+   output EN_L;
+   output EN_ML;
+   output EN_MR;
+   output EN_R;
+   output [6:0] seven_seg_out;
+   
+   wire [15:0] Qout;
+   wire XLXN_1;
+   wire XLXN_2;
+   wire XLXN_3;
+   wire XLXN_4;
+   wire XLXN_22;
+   wire XLXN_24;
+   wire XLXN_26;
+   
+   mux4_7bit_sch XLXI_1 (.c0(Qout[14]), 
+                         .c1(Qout[15]), 
+                         .in0(L[6:0]), 
+                         .in1(ML[6:0]), 
+                         .in2(MR[6:0]), 
+                         .in3(R[6:0]), 
+                         .mux_out(seven_seg_out[6:0]));
+   CB16CE_MXILINX_seven_seg_control_sch XLXI_2 (.C(CLK), 
+                                                .CE(XLXN_24), 
+                                                .CLR(XLXN_22), 
+                                                .CEO(), 
+                                                .Q(Qout[15:0]), 
+                                                .TC(XLXN_22));
+   // synthesis attribute HU_SET of XLXI_2 is "XLXI_2_16"
+   D2_4E_MXILINX_seven_seg_control_sch XLXI_3 (.A0(Qout[14]), 
+                                               .A1(Qout[15]), 
+                                               .E(XLXN_26), 
+                                               .D0(XLXN_4), 
+                                               .D1(XLXN_3), 
+                                               .D2(XLXN_2), 
+                                               .D3(XLXN_1));
+   // synthesis attribute HU_SET of XLXI_3 is "XLXI_3_17"
+   INV XLXI_4 (.I(XLXN_4), 
+               .O(EN_L));
+   INV XLXI_5 (.I(XLXN_3), 
+               .O(EN_ML));
+   INV XLXI_6 (.I(XLXN_2), 
+               .O(EN_MR));
+   INV XLXI_7 (.I(XLXN_1), 
+               .O(EN_R));
+   VCC XLXI_15 (.P(XLXN_24));
+   VCC XLXI_16 (.P(XLXN_26));
+endmodule

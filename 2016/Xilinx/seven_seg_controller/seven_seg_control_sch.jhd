@@ -1,0 +1,3 @@
+MODULE seven_seg_control_sch
+	SUBMODULE mux4_7bit_sch
+		INSTANCE XLXI_1

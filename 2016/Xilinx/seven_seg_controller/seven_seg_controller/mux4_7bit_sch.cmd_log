@@ -1,0 +1,2 @@
+sch2verilog -intstyle ise -family spartan2e   -w "C:/XilinxWorks/toyprocessor_tt/mux4_7bit_sch.sch" mux4_7bit_sch.vf
+sch2verilog -intstyle ise -family spartan2   -w "C:/XilinxWorks/toyprocessor_tt/mux4_7bit_sch.sch" mux4_7bit_sch.vf
