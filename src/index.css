@@ -28,3 +28,12 @@ button {
   outline: none;
   padding: 5px;
 }
+button.hover, a.hover {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  list-style: none;
+  color: var(--color-body);
+}

@@ -33,7 +33,7 @@ export default function Router() {
           element: <Works />,
         },
         {
-          path: "./contact",
+          path: "/contact",
           element: <Contact />,
         }
       ]
