@@ -1,0 +1,22 @@
+
+
+.buzzwords-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+  justify-content:space-evenly;
+
+  padding: 20px 0px 20px 20px;
+  height: 100vh;
+  background-color: var(--color-cyan-dark);
+}
+
+.buzzwords-container p{
+  color: white;
+  font-size: 2rem;
+}
