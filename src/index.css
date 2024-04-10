@@ -12,7 +12,7 @@
 }
 
 :root {
-  --color-background: #F9F1DB;
+  --color-background: #f9f1db;
   --color-background-dark: #C2AD8C;
   --color-body: #5F4B32;
   --color-body-dark: #5F4B32;
@@ -20,6 +20,8 @@
   --color-orange-dark:  #E05E00;
   --color-cyan-light: #8BBBB8;
   --color-cyan-dark: #4D7C80;
+
+  --desktop-maxscreen: 1600px;
 }
 
 body {
@@ -29,8 +31,9 @@ body {
   align-items: center;
   
   margin: auto;
-  max-width: 1600px;
+  /* max-width: 1600px; */
   height: 100vh;
+  overflow-x: hidden;
 
   background-color: var(--color-background);
 }

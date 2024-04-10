@@ -58,19 +58,12 @@ export default function Home() {
             variants={{
               normal: {
                 width: '10px',
-                color: 'blue',
-              },
-              hovered: {
-                width: '100%',
-                color: 'green'
               },
               line: {
-                width: '90%',
-                color: 'green',
+                width: '95%',
               }
             }}
             initial='normal'
-            // whileHover='line'
             animate={controls}
             
             ></motion.span> <span className='arrow-head'></span>
@@ -81,16 +74,18 @@ export default function Home() {
           variants={{
             line: {
               width: '200px',
-              
+              opacity: 1,
             },
             normal: {
-              width: 0
+              width: 0,
+              opacity: 0,
             }
           }}
-          initial={{
-            width: '10px'
+          transition={{
+            delayChildren: 0.5
           }}
           animate={controls}
+          initial='normal'
           ><Buzzwords /></motion.div>
           
         </div>

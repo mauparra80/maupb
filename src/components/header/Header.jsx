@@ -10,15 +10,30 @@ export default function Header() {
   const controls = useAnimation();
   const handleClick = () => {
     if (navOpen) {
-      controls.start('flipBack');
+      controls.start('flipRight');
+      setNavOpen(false);
     }
-    else {controls.start('flip')}
-    setNavOpen((prev) => !prev);
+    else {
+      controls.start('flipLeft')
+      setNavOpen(true);
+    }
+    
   }
 
   return(
     
-      <div className="header-container">
+      <motion.div className="header-container"
+      variants={{
+        flipRight: {
+          backgroundColor: '#F9F1DB00',
+        },
+        flipLeft: {
+          backgroundColor: '#F9F1DB',
+        }
+      }}
+      animate={controls}
+      
+      >
       <AnimatePresence>
       {navOpen && (
         <motion.div className="nav-container"
@@ -28,7 +43,7 @@ export default function Header() {
         }}
         animate={{
           translateX: '-100px',
-          opacity: 1,
+          opacity: 1.0,
         }}
         exit={{
           translateX: '100%',
@@ -55,17 +70,17 @@ export default function Header() {
         initial: {
           rotate: '0deg',
         },
-        flip: {
+        flipRight: {
           rotate: '180deg',
         },
-        flipBack: {
+        flipLeft: {
           rotate: '-180deg',
         }
       }}
       initial='initial'
       animate={controls}
-      >{navOpen ? (<><hr /><hr /><hr /></>) : (<>X</>)}</motion.button>
-    </div> 
+      >{navOpen ? (<>X</>) : (<><hr /><hr /><hr /></>)}</motion.button>
+    </motion.div> 
     
     
     )
