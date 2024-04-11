@@ -1,16 +1,21 @@
 import './home.css';
 import {motion, useAnimation} from 'framer-motion';
+import React, {useState} from 'react';
 
 import Buzzwords from '../../components/buzzwords/Buzzwords';
 import profilePic from '../../assets/imgs/profile-pic.png';
 import linkedInPng from '../../assets/icons/linkedin.png'
 import instagramPng from '../../assets/icons/instagram.png'
-import githubPng from '../../assets/icons/github.png'
+import githubPng from '../../assets/icons/github.png';
+import holoBox from '../../assets/imgs/holo-box.png'
+import futureVid from '../../assets/videos/future-vid.mp4'
 
 
 
 export default function Home() {
   const controls = useAnimation();
+
+ 
 
   return (
     <>
@@ -100,22 +105,107 @@ export default function Home() {
           <p>
             Teaching web design inspired me to go back into my tech field and explore its possibilities. After a few months of studying <a href="https://www.theodinproject.com/">The Odin Project</a>, I am now growing my web design knowledge by freelancing mostly wedding websites and other small sites for friends, family, and small businesses.
           </p>
+          <div className='contact-link-flexbox'>
+            <motion.div className="contact-link-container"
+            onHoverStart={() => controls.start('contactHovered')}
+            onHoverEnd={() => controls.start('contactNormal')}
+            >
+              <motion.div
+              variants={{
+                contactHovered: {
+                  scaleX: 1
+                },
+                contactNormal: {
+                  scaleX: 0
+                }
+              }}
+              initial='contactNormal'
+              style={{
+                position: 'absolute',
+                top: '-5px',
+                bottom: '-5px',
+                right: '-15px',
+                backgroundColor: '#4D7C80',
+                width: '110%',
+                padding: '20px',
+                transformOrigin: 'bottom',
+              }}
+              animate={controls}
+              />
+              <motion.a href=""
+              variants={{
+                contactHovered: {color: '#ffffff'},
+                contactNormal: {color: '#5F4B32'}
+              }}
+              initial='contactNormal'
+              animate={controls}
+              style={{position: 'relative', zIndex: 1}}
+              >
+                <motion.p
+                variants={{
+                  contactHovered: {color: '#ffffff'},
+                  contactNormal: {color: '#5F4B32'}
+                }}
+                >Do You Need a Website?</motion.p>
+                <motion.div
+                variants={{
+                  contactHovered: {background: '#ffffff00'},
+                  contactNormal: {background: '#FF9447'}
+                }}
+                className="contact-link-button">
+                  <motion.h3
+                  variants={{
+                    contactHovered: {color: '#ffffff'},
+                    contactNormal: {color: '#5F4B32'}
+                  }}
+                  >Contact me</motion.h3>
+                </motion.div>
+              </motion.a>
+            </motion.div>
+          </div>
         </div>
       </div>
 
       <div className="grid-section future">
-        <div className="title numbered">
-          <h2>Future</h2>
+        <div className="left-section">
+          <div className="title numbered">
+            <h2>Future</h2>
+            
+          </div>
+          <div className="video-container">
+                <div className="masked-holorays"></div>
+                <div className="solid-ray-background"></div>
+                <div className="glow shadow"></div>
+                <img src={holoBox} alt="" id='holoBox' />
+                <div className="holoBox-light"></div>
+                <div className="holoBox-slit"></div>
+                <div className="future-video">
+                  <video
+                  controls
+                  width='400px'
+                  src={futureVid}
+                  autoPlay
+                  loop='loop'
+                  playsInline
+                  >testing</video>
+                </div>
+          </div>
         </div>
         <div className="content">
           <p>
             If there is anything I have learned, is that while you can have a directional heading for the future, nothing is assured so I mostly let the waves carry me while I set the sails. I soon hope to be part of a bigger project and team so I can continue to grow as a web developer. 
+
+            If there is anything I have learned, is that while you can have a directional heading for the future, nothing is assured so I mostly let the waves carry me while I set the sails. I soon hope to be part of a bigger project and team so I can continue to grow as a web developer. 
+
+            
           </p>
         </div>
       </div>
+      <div className="test-section">
+      </div>
     </div>
 
-    <div className="wavy-line"></div>
+    
    
     </>
   )

@@ -5,7 +5,6 @@ import {AnimatePresence, motion, useAnimationControls, useAnimation} from 'frame
 
 export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
-  const [buttonSymbol, setButtonSymbol] = useState("<hr /><hr /><hr />")
 
   const controls = useAnimation();
   const handleClick = () => {

@@ -101,14 +101,16 @@ p a {
 
 
 /* CSS for the wavy line */
-/*
+
 .wavy-line {
   position: fixed;
   top: 50px;
   left: 50px;
   height: 100px;
   width: 100px; 
-  border-radius: 0 100px;
+  /* border-radius: 0 100px; */
+  mask-image: url('../../assets/imgs/holo-rays.png');  /* Adjust the path as needed */
+  mask-size: cover;
   background: linear-gradient(to bottom, rgb(182, 244, 146), rgb(51, 139, 147),rgb(182, 244, 146));
   background-size: 100% 200px; 
   animation: wave 6s infinite linear;
@@ -123,7 +125,7 @@ p a {
     background-position: 0 -200px; 
   }
 }
-*/ 
+
 
 
   .wavy-line2 {
@@ -162,4 +164,194 @@ p a {
     border-top: 5px solid var(--color-cyan-dark);
 
     transform: rotate(45deg);
+  }
+
+  .contact-link-flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .contact-link-container{
+    margin-top: 40px;
+    width: max-content;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .contact-link-button {
+    background: var(--color-cyan-light);
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  .contact-link-container  {
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: 'roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .contact-link-container a:hover {
+    filter: none;
+  }
+
+  @keyframes gradientAnimation {
+    0% {
+      color: #72b3d65e;
+    }
+    25% {
+      color: #3e3c8853;
+    }
+    50% {
+      color: #6aa0bd54;
+    }
+    75% {
+      color: #5851db6e;
+    }
+    100% {
+      color: #72b3d65e;
+    }
+  }
+  
+  .gradient-svg {
+    /* width: 500px;
+    height: 500px; */
+    /* animation: gradientAnimation 8s ease infinite; */
+    
+  }
+
+
+
+  @keyframes moveGradient {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 0% 100%;
+    }
+  }
+  
+  #gradient {
+    animation: moveGradient 6s linear infinite;
+    
+  }
+
+  .masked-holorays {
+    position: absolute;
+    bottom: 82px;
+    left: 115px;;
+    width: 400px;
+    height: 420px;
+    z-index: 0;
+    border: 1px solid rgb(0, 255, 0);
+
+    mask-image: url('../../assets/imgs/holo-rays.png');  /* Adjust the path as needed */
+    mask-size: contain;
+    mask-position: center ;
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+
+    background: linear-gradient(to bottom, rgba(146, 244, 211, 0.853),rgba(149, 243, 213, 0.256), rgba(94, 182, 225, 0.771),rgba(149, 243, 213, 0.256),rgba(146, 244, 211, 0.853));
+    background-size: 100% 200px;
+    animation: holo-wave 2s infinite linear;
+  }
+
+  @keyframes holo-wave {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 -200px; 
+    }
+  }
+  
+
+  /* @keyframes gradientShift {
+    0%, 100% {
+      background-position: bottom;
+    }
+    50% {
+      background-position: top;
+    }
+  } */
+
+  #holoBox {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  .video-container {
+    width: 500px;
+    position:relative;
+    margin-top: 100px;
+  }
+
+  .video-container video {
+    box-shadow: 0 0 30px 5px rgba(35, 162, 201, 0.543);
+  }
+
+  .future-video {
+    margin: 0 0 10px 115px;
+    padding-bottom: 130px;
+    opacity: .8;
+    z-index: 999;
+  }
+
+  .solid-ray-background {
+    position: absolute;
+    margin: 0 0 10px 115px;
+
+    clip-path: polygon(100% 0, 100% 85%, 65% 100%, 36% 100%, 0 85%, 0 0);
+    background: linear-gradient(to bottom, rgba(146, 244, 211, 0.853),rgba(157, 243, 216, 0.256), rgba(114, 186, 222, 0.771),rgba(149, 243, 213, 0.256),rgba(146, 244, 211, 0.853));
+    background-size: 100% 200px;
+    width: 400px;
+    height: 330px;
+    opacity: .5;
+    z-index: 0;
+
+    
+  }
+
+  .holoBox-light {
+    position: absolute;
+    bottom: 40px;
+    left: 200px;
+
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(255, 0, 0, 0.7);
+    box-shadow: 0 0 5px 5px rgba(255, 0, 0, 0.7);
+    background-size: 100% 200px;
+    
+    animation: blink 2s infinite linear;
+  }
+
+  @keyframes blink {
+    0%, 80%, 100% {
+      box-shadow: none;
+      background: rgba(255, 0, 0, 0.5)
+    }
+    40% {
+      box-shadow: none;
+      background: rgba(255, 0, 0, 0.1)
+    }
+    50% {
+      box-shadow: 0 0 5px 5px rgba(255, 0, 0, 0.7);
+      background: rgba(255, 0, 0, 0.7);
+    }
+  }
+
+  .holoBox-slit {
+    position: absolute;
+    left: 260px;
+    bottom: 30px;
+
+    height: 10px;
+    width: 100px;
+
+    background: rgba(65, 65, 65, 0.74);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.809);
+    border-left: 2px solid rgba(0, 0, 0, 0.829);
+    border-top: 1px solid rgba(0, 0, 0, 0.479);
+    border-right: 1px solid rgba(0, 0, 0, 0.471);
   }
