@@ -1,11 +1,138 @@
 
-
 .footer {
-  /* position: absolute;
-  left: 0; */
-
-
-  background-color: var(--color-background-dark);
-  height: 100px;
-  width: 100%;
+  height: 500px;
+  
 }
+
+.regular-footer {
+  
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  height: 500px;
+  width: 100vw;
+  background-color: color-mix(in srgb, var(--color-background-dark) 80%, transparent 50%);
+  
+  .walking-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    margin: auto;
+    margin-top: 70px;
+    padding-top: 100px;
+    max-width: 1600px;
+
+    border: 1px solid red;
+  }
+  
+  .walking-head {
+    position: absolute;
+    padding: 10px 10px 50px 10px;
+  }
+  .follower:hover{
+    transform: scale(1.5);
+    opacity: .5;
+  }
+  .one {
+    top: 20px;
+    left: 52%;
+  }
+  .two {
+    top: 12px;
+    left: 43%;
+  }
+  .three {
+    top: 25px;
+    left: 34%;
+  }
+  .zero {
+    width: 100px;
+    top: -15px;
+    left: 61%;
+    transform: rotate(40deg);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /**************table footer*****************/
+.cube-container {
+  width: 100%;
+  height: 200px;
+  perspective: none;
+}
+
+.cube {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  transform-style: preserve-3d;
+  transform: rotate3d(1,1,0,-10deg) rotate3d(0,1,0, 3deg);
+  transition: 1s;
+  z-index: -999;
+}
+
+.face {
+  width: 1400px;
+  height: 100px;
+  background: var(--color-background-dark);
+  border: 4px solid var(--color-body-dark);
+  position: absolute;
+  bottom: -60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.front {
+  transform: rotateY(-90deg) translateX(500px) rotateY(90deg);;
+  background: #756147;
+}
+.back {
+  transform: rotateY(90deg) translateX(500px) rotateY(-90deg);
+}
+.left {
+  transform: translateX(-50%) rotateY(-90deg);
+  max-width: 1000px;
+  min-width: 1000px;
+}
+
+.right {
+  transform: translateX(90%) rotateY(90deg) ;
+  transition: 1s;
+  width: 1000px;
+  background: #635037;
+}
+.top {
+  transform: translateY(40%) rotateX(90deg);
+   /* Adjust height as needed */
+  background: #977955;
+  height: 1000px;
+}
+
+
+
+
+
+
+
+
+

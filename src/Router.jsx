@@ -1,4 +1,4 @@
-import {createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import {createBrowserRouter, RouterProvider, Outlet, useLocation } from "react-router-dom";
 import Header from "./components/header/Header.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import Home from "./pages/home/Home.jsx";
@@ -8,11 +8,14 @@ import ErrorPage from "./components/errors/ErrorPage.jsx";
 
 
 const Layout = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   return (
     <>
       <Header />
       <Outlet />
-      <Footer />
+      <Footer isHomePage={isHomePage}/>
     </>
   )
 }

@@ -7,8 +7,7 @@ import profilePic from '../../assets/imgs/profile-pic.png';
 import linkedInPng from '../../assets/icons/linkedin.png'
 import instagramPng from '../../assets/icons/instagram.png'
 import githubPng from '../../assets/icons/github.png';
-import holoBox from '../../assets/imgs/holo-box.png'
-import futureVid from '../../assets/videos/future-vid.mp4'
+import Projector from '../../components/Projector/Projector';
 
 
 
@@ -172,37 +171,22 @@ export default function Home() {
             <h2>Future</h2>
             
           </div>
-          <div className="video-container">
-                <div className="masked-holorays"></div>
-                <div className="solid-ray-background"></div>
-                <div className="glow shadow"></div>
-                <img src={holoBox} alt="" id='holoBox' />
-                <div className="holoBox-light"></div>
-                <div className="holoBox-slit"></div>
-                <div className="future-video">
-                  <video
-                  controls
-                  width='400px'
-                  src={futureVid}
-                  autoPlay
-                  loop='loop'
-                  playsInline
-                  >testing</video>
-                </div>
-          </div>
+          
         </div>
         <div className="content">
           <p>
             If there is anything I have learned, is that while you can have a directional heading for the future, nothing is assured so I mostly let the waves carry me while I set the sails. I soon hope to be part of a bigger project and team so I can continue to grow as a web developer. 
-
-            If there is anything I have learned, is that while you can have a directional heading for the future, nothing is assured so I mostly let the waves carry me while I set the sails. I soon hope to be part of a bigger project and team so I can continue to grow as a web developer. 
-
-            
           </p>
         </div>
       </div>
-      <div className="test-section">
+      <div className='projector-container grid-section'>
+        <Projector />
+        <div className="projector-sign">
+          <h3>I will be making hologram sites one day</h3>
+          {/* <img src={arrowIcon} alt="" /> */}
+        </div>
       </div>
+      
     </div>
 
     
