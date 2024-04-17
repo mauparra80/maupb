@@ -199,6 +199,8 @@ p a {
   .projector-container {
     margin-bottom: 0;
     
+    display: flex;
+    flex-wrap: wrap-reverse;
     justify-content: center;
     align-items: center;
   }
@@ -206,6 +208,7 @@ p a {
   .projector-sign {
     position: relative;
     max-height: 200px;
+    max-width: 500px;
     text-align: center;
   
   }
@@ -219,5 +222,10 @@ p a {
     color: var(--color-body-dark);
     transform: rotateX(180deg) rotateZ(50deg)
   }
+
+
+@media (max-width: 1000px) {
+  
+}
 
   

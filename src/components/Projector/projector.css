@@ -30,6 +30,7 @@
 #holoBox {
   position: absolute;
   bottom: 0;
+  left: 0;
   z-index: -1;
 }
 
@@ -37,7 +38,7 @@
   width: 500px;
   position:relative;
   margin-bottom: -75px;
-  
+  margin-left: -100px;
   z-index: 1;
 }
 

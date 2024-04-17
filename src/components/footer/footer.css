@@ -1,14 +1,12 @@
 
 .footer {
-  height: 500px;
-  
+  height: 200px;
 }
 
 .regular-footer {
-  
   position: absolute;
-  left: 0;
-  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 
   height: 500px;
   width: 100vw;
@@ -23,41 +21,83 @@
     margin: auto;
     margin-top: 70px;
     padding-top: 100px;
+    width: 100%;
     max-width: 1600px;
+    overflow: hidden;
 
     border: 1px solid red;
   }
   
-  .walking-head {
+
+  .heads {
     position: absolute;
+    top: 0;
+  }
+  
+  .walking-head {
+    /* position: absolute; */
     padding: 10px 10px 50px 10px;
   }
   .follower:hover{
-    transform: scale(1.5);
-    opacity: .5;
+    opacity: .8;
+    scale: 1.1
   }
+
+  .walking-image-container:hover .one {
+    animation: bobHeads 1s ease-in-out .4s infinite ;
+  }
+
+  .walking-image-container:hover .two {
+    animation: bobHeads 1s ease-in-out .2s infinite ;
+  }
+
+  .walking-image-container:hover .three
+   {
+    animation: bobHeads 1s ease-in-out infinite ;
+  }
+
   .one {
-    top: 20px;
-    left: 52%;
+    /* margin: 0 0 10px 70px; */
+    translate: -70px -10px;
   }
   .two {
-    top: 12px;
-    left: 43%;
+    translate: -25px -20px;
   }
   .three {
-    top: 25px;
-    left: 34%;
+    translate: 35px -20px;
   }
   .zero {
     width: 100px;
-    top: -15px;
-    left: 61%;
     transform: rotate(40deg);
+    
   }
 }
 
+@keyframes bobHeads {
+  0% { transform: translateY(0);}
+  50% {transform: translateY(-10px);}
+  75%{transform: translateY(10px);}
+  100%{transform: translateY(0);}
+}
 
 
+@media all and (max-width: 700px) {
+  .regular-footer .one {
+    transform: translateX(80px) translateY(60px) scale(.8);
+  }
+  .regular-footer .two {
+    transform: translateX(30px) translateY(65px) scale(.8);
+  }
+  .regular-footer .three {
+    transform: translateX(-30px) translateY(65px) scale(.8);
+  }
+  .regular-footer .zero {
+    translate: -90px 60px;
+  }
+  .walkingImg {
+    transform: scale(.6);
+  }
+}
 
 
 
@@ -74,7 +114,7 @@
 
  /**************table footer*****************/
 .cube-container {
-  width: 100%;
+  width: 100;
   height: 200px;
   perspective: none;
 }
@@ -84,13 +124,13 @@
   width: 100%;
   height: 100px;
   transform-style: preserve-3d;
-  transform: rotate3d(1,1,0,-10deg) rotate3d(0,1,0, 3deg);
+  transform: rotate3d(1,1,0,-10deg) rotate3d(0,1,0, 3deg) translateX(-100px);
   transition: 1s;
   z-index: -999;
 }
 
 .face {
-  width: 1400px;
+  width: 2500px; /*normal 1400px*/
   height: 100px;
   background: var(--color-background-dark);
   border: 4px solid var(--color-body-dark);

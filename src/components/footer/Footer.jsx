@@ -17,19 +17,8 @@ make footer for other pages
 
 export default function Footer({isHomePage}) {
 
-  const parentVariant = {
-    normal: {},
-    hover: {}
-  }
-  const headVariant = {
-    normal: {},
-    hover: {
-      y: [-10, 10, -10],
-    }
-  }
-
   return (
-    <div className="footer">
+    <div className="footer" style={{ ...!isHomePage && {height: '500px'}}}>
       {isHomePage ? (
         <div className="cube-container">
         <div className="cube">
@@ -38,7 +27,7 @@ export default function Footer({isHomePage}) {
           <div className="face left"></div>
           <div className="face right"></div>
           <div className="face front"></div>
-          <div className="face back"></div>
+          {/* <div className="face back"></div> */}
           <div className="face top"></div>
         </div>
 
@@ -46,58 +35,43 @@ export default function Footer({isHomePage}) {
         </div>
       ) : (
         <div className="regular-footer">
-          <motion.div 
+          <div 
           className="walking-image-container"
-          variants={parentVariant}
-          whileHover='hover'
           >
             <img src={walking1} alt="" className='walkingImg' />
-            <a href="">
-              <motion.img src={linkedInPng} alt="" className='walking-head follower one'
-              variants={headVariant}
-              transition={{
-                delay: 0.0,
-                duration: 1,
-                repeat: Infinity,
-                type: 'easeInOut'
-              }}
-              />
-            </a>
-            <a href="">
-              <motion.img src={githubPng} alt="" className='walking-head follower two'
-              variants={headVariant}
-              transition={{
-                delay: 0.2,
-                duration: 1,
-                repeat: Infinity,
-                type: 'easeInOut'
-              }}
-              />
-            </a>
-            <a href="">
-              <motion.img src={instagramPng} alt="" className='walking-head follower three'
-              variants={headVariant}
-              transition={{
-                delay: 0.4,
-                duration: 1,
-                repeat: Infinity,
-                type: 'easeInOut'
-              }}
-              />
-            </a>
-            <motion.img src={mauHeadPng} alt="" className='walking-head leader zero'
-              initial={{rotate: 20}}
-              animate={{
-                rotate: [30,10,30],
-              }}
-              transition={{
-                repeat: Infinity,
-                repeatType: 'mirror',
-                duration: 2,
-                ease: 'easeInOut'
-              }}
-              />
-          </motion.div>
+            <div className="heads">
+              <a href="">
+                <img src={linkedInPng} alt="" className='walking-head follower one'
+                />
+              </a>
+              <a href="">
+                <img src={githubPng} alt="" className='walking-head follower two'
+                />
+              </a>
+              <a href="">
+                <img src={instagramPng} alt="" className='walking-head follower three'
+                />
+              </a>
+              <motion.img src={mauHeadPng} alt="" className='walking-head leader zero'
+                initial={{
+                  rotate: 20,
+                  x: '100px',
+                  y: '-10px'
+                }}
+                animate={{
+                  x: '100px',
+                  y: '-10px',
+                  rotate: [30,10,30],
+                }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: 'mirror',
+                  duration: 2,
+                  ease: 'easeInOut'
+                }}
+                />
+            </div>
+          </div>
         </div>
       )}
     

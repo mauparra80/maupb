@@ -55,8 +55,27 @@ a:hover {
 .old-completed-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
   align-items: start;
   margin-top: 100px;
 }
 
+@media (max-width: 800px) {
+  .main-section {
+    margin: 0 10px 200px 10px ;
+  }
+
+  .double-project-section {
+    margin-left: 0px;
+    gap: 100px;
+  }
+
+  .numbered {
+    margin-left: -40px;
+
+    h2 {
+      font-size: 4rem;
+      left: 20%;
+    }
+  }
+}

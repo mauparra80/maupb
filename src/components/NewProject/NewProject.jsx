@@ -70,11 +70,13 @@ export default function NewProject({
     >
       {isVideo ? (<ProjectVideo mediaSource={mediaSource}/>) : <ProjectImg  mediaSource={mediaSource} description={description}/>}
       
-      <h3 className="project-title">{projectTitle}</h3>
-      <div className="tags">
-        {renderTag(tag1)}
-        {renderTag(tag2)}
-        {renderTag(tag3)}
+      <div className="project-content">
+        <h3 className="project-title">{projectTitle}</h3>
+        <div className="tags">
+          {renderTag(tag1)}
+          {renderTag(tag2)}
+          {renderTag(tag3)}
+        </div>
       </div>
     </motion.a>
   )

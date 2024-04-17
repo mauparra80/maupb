@@ -100,7 +100,7 @@ export default function Works() {
           <NewProject 
             mediaSource={rockPaperScissorsImg}
             isVideo={false}
-            projectTitle='Rock/Paper/Scissors'
+            projectTitle='R/P/S Game'
             description='A small game I made early on to test out some concepts. I started learning CSS animations and event handlers'
             tag1={{tag: 'Vanilla CSS', tagColor: 'orange'}}
             tag3={{tag: 'TOP Project'}}
