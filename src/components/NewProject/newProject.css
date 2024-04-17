@@ -117,7 +117,7 @@
 @media (max-width: 800px) {
 
   .project-flex {
-    margin-left: 0;
+    margin-left: 0px;
     justify-content: center;
   }
 

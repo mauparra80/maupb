@@ -18,7 +18,7 @@ make footer for other pages
 export default function Footer({isHomePage}) {
 
   return (
-    <div className="footer" style={{ ...!isHomePage && {height: '500px'}}}>
+    <div className="footer" >
       {isHomePage ? (
         <div className="cube-container">
         <div className="cube">
@@ -35,20 +35,25 @@ export default function Footer({isHomePage}) {
         </div>
       ) : (
         <div className="regular-footer">
+          <div className="quote">
+            <h3>
+              Follow Me!
+            </h3>
+          </div>
           <div 
           className="walking-image-container"
           >
             <img src={walking1} alt="" className='walkingImg' />
             <div className="heads">
-              <a href="">
+              <a href="https://www.linkedin.com/in/mauricio-parrab/" target='_blank'>
                 <img src={linkedInPng} alt="" className='walking-head follower one'
                 />
               </a>
-              <a href="">
+              <a href="https://github.com/mauparra80" target='_blank'>
                 <img src={githubPng} alt="" className='walking-head follower two'
                 />
               </a>
-              <a href="">
+              <a href="https://www.instagram.com/mauparra80/" target='_blank'>
                 <img src={instagramPng} alt="" className='walking-head follower three'
                 />
               </a>

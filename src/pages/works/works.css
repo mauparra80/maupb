@@ -58,6 +58,7 @@ a:hover {
   gap: 30px;
   align-items: start;
   margin-top: 100px;
+  padding-bottom: 100px;
 }
 
 @media (max-width: 800px) {
@@ -66,7 +67,8 @@ a:hover {
   }
 
   .double-project-section {
-    margin-left: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
     gap: 100px;
   }
 
