@@ -34,8 +34,11 @@ export default function Home() {
 
     <div className="body-section">
       <div className="grid-section overview">
-        <div className="title numbered">
-          <h2>Overview</h2>
+        <div>
+          <div className="title numbered">
+            <h2>Overview</h2>
+          
+          </div>
           <div className="links">
             <a href="https://www.linkedin.com/in/mauricio-parrab/" target="_blank"><img className='icon' src={linkedInPng} alt="LinkedIn link" /><p>Professional</p></a>
             <a href="https://github.com/mauparra80" target="_blank"><img className='icon' src={githubPng} alt="github link"  /><p>Projects</p></a>

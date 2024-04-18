@@ -13,12 +13,12 @@ export default function Projector() {
                 <div className="holoBox-slit"></div>
                 <div className="future-video">
                   <video
-                  controls
                   width='400px'
                   src={futureVid}
-                  autoPlay
-                  loop='loop'
+                  muted
+                  loop
                   playsInline
+                  autoPlay
                   ></video>
                 </div>
       </div>

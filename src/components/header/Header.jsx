@@ -6,6 +6,7 @@ import {AnimatePresence, motion, useAnimationControls, useAnimation} from 'frame
 export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [currentPage, setCurrentPage] = useState("Mau");
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 800px)');
@@ -28,7 +29,12 @@ export default function Header() {
       controls.start('flipLeft')
       setNavOpen(true);
     }
-    
+  }
+
+  const removeNav = () => {
+    if (navOpen) {
+      setNavOpen(false);
+    }
   }
 
   return(
@@ -43,11 +49,35 @@ export default function Header() {
         }
       }}
       animate={controls}
-      
+      onClick={removeNav}
       >
       <AnimatePresence>
-      {navOpen && isMobile ? (<h1>mobile</h1>) : (
-        <motion.div className="nav-container"
+      {navOpen && (isMobile ? (
+      <div className="mobile-nav-container padding-top-10px">
+        <nav>
+            <motion.ul
+            initial={{
+              translateY: '-100%',
+              opacity: 0,
+            }}
+            animate={{
+              translateY: '100px',
+              opacity: 1.0,
+            }}
+            exit={{
+              translateY: '-200%',
+              opacity: 0,
+            }}
+            
+            >
+              <Link to='/' onClick={() => setCurrentPage('Mau')}>Mau</Link>
+              <Link to='/works' onClick={() => setCurrentPage('Works')} >Works</Link>
+              <Link to='/contact' onClick={() => setCurrentPage('Contact')}  >Contact</Link>
+            </motion.ul>
+        </nav>
+      </div>
+      ) : (
+        <motion.div className="nav-container padding-top-10px"
         initial={{
           translateX: '100%',
           opacity: 0,
@@ -65,34 +95,38 @@ export default function Header() {
         >
           <nav>
             <ul>
-              {console.log(navOpen)}
-              <p>{navOpen}stuff</p>
-              <Link to='/' >Mauricio</Link>
-              <Link to='/works' >Works</Link>
-              <Link to='/contact' >Contact</Link>
+              <Link to='/' onClick={() => setCurrentPage('Mau')} >Mau</Link>
+              <Link to='/works' onClick={() => setCurrentPage('Works')} >Works</Link>
+              <Link to='/contact' onClick={() => setCurrentPage('Contact')}>Contact</Link>
             </ul>
           </nav>
         </motion.div>
-      )}
+      ))}
       </AnimatePresence>
 
-      <motion.button 
-      className="nav-button" 
-      onClick={handleClick}
-      variants={{
-        initial: {
-          rotate: '0deg',
-        },
-        flipRight: {
-          rotate: '180deg',
-        },
-        flipLeft: {
-          rotate: '-180deg',
-        }
-      }}
-      initial='initial'
-      animate={controls}
-      >{navOpen ? (<>X</>) : (<><hr /><hr /><hr /></>)}</motion.button>
+      <div className="header-button-container padding-top-10px">
+        {isMobile && (
+          <p>{currentPage}</p>
+        )}
+
+        <motion.button
+        className="nav-button"
+        onClick={handleClick}
+        variants={{
+          initial: {
+            rotate: '0deg',
+          },
+          flipRight: {
+            rotate: '180deg',
+          },
+          flipLeft: {
+            rotate: '-180deg',
+          }
+        }}
+        initial='initial'
+        animate={controls}
+        >{navOpen ? (<>X</>) : (<><hr /><hr /><hr /></>)}</motion.button>
+      </div>
     </motion.div> 
     
     
