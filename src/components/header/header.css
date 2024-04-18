@@ -1,6 +1,6 @@
 
 .header-container {
-  position: fixed;
+  position: sticky;
   right: 0;
   top: 0;
   z-index: 999;
@@ -9,6 +9,7 @@
   justify-content: end;
 
   width: 100%;
+  max-width: 1600px;
   
 }
 

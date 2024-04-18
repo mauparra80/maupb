@@ -7,13 +7,14 @@ export default function Contact() {
     <div className="form-container">
       <div className="contact-prompt">
         <h2 id='contact-title'>Contact<br/> Under Construction</h2>
-        <p>But you can still send me a message</p>
+        <p>But you can still send me an email at mauparra80@hotmail.com</p>
       </div>
 
-      <form name="contact" netlify className='contact-form'>
+      <form name="contact" method="POST" data-netlify="true" className='contact-form' action='/ThankYou' >
+        <input type="hidden" name="form-name" value="contact" />
         <div className="form-row">
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" placeholder='Smitty Werben'/>
+          <input type="text" name="name" placeholder='Smitty Werben' />
         </div>
         <div className="form-row">
           <label htmlFor="email">Email</label>
@@ -24,7 +25,7 @@ export default function Contact() {
           <textarea type="text" name="message" placeholder='You are doing everything wrong and heres why ' rows={5} />
         </div>
 
-        <button type="submit">Send</button>
+        <button type="submit" disabled>does not work yet! sorry!</button>
       </form>
     </div>
   )

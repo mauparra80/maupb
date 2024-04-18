@@ -2,7 +2,7 @@ import './works.css'
 import {motion} from 'framer-motion'
 import NewProject from '../../components/NewProject/NewProject'
 
-
+import maupbVid from '../../assets/videos/maupb-vid.mp4'
 import futureVid from '../../assets/videos/future-vid.mp4'
 import weddingVid from '../../assets/videos/wedding-vid.mp4'
 import shopVid from '../../assets/videos/shop-video.mp4'
@@ -27,16 +27,19 @@ export default function Works() {
         <NewProject
         mediaSource={weddingVid}
         isVideo={true}
+        link='https://mauparra80.github.io/wedding-site/'
         projectTitle='Wedding Websites'
         tag1={{tag: 'React', tagColor: 'orange'}}
         tag2={{tag: 'Single-Page'}}
         />
         <NewProject 
-        mediaSource={shopVid}
+        mediaSource={maupbVid}
         isVideo={true}
-        projectTitle='Mystic Mode'
+        link='https://mysticmodeshop.netlify.app/'
+        projectTitle='maupb (this site)'
         tag1={{tag: 'React', tagColor: 'orange'}}
         tag2={{tag: 'React-Router', tagColor: 'blue'}}
+        tag3={{tag: 'Framer-Motion', tagColor: 'blue'}}
         />
       </div>
     </div>
@@ -50,6 +53,7 @@ export default function Works() {
       <NewProject 
         mediaSource={shopVid}
         isVideo={true}
+        link='https://mysticmodeshop.netlify.app/'
         projectTitle='Mystic Mode'
         tag1={{tag: 'React', tagColor: 'orange'}}
         tag2={{tag: 'React-Router', tagColor: 'blue'}}
@@ -57,6 +61,7 @@ export default function Works() {
       <NewProject 
         mediaSource={resumeVid}
         isVideo={true}
+        link='https://resumebuildermpb.netlify.app/'
         projectTitle='Resume Builder'
         tag1={{tag: 'React', tagColor: 'orange'}}
         tag2={{tag: 'React-Router', tagColor: 'blue'}}

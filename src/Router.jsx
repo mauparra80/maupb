@@ -5,6 +5,7 @@ import Home from "./pages/home/Home.jsx";
 import Works from "./pages/works/Works.jsx";
 import Contact from "./pages/contact/Contact.jsx";
 import ErrorPage from "./components/errors/ErrorPage.jsx";
+import ThankYou from './pages/thank-you/ThankYou.jsx'
 
 
 const Layout = () => {
@@ -38,7 +39,11 @@ export default function Router() {
         {
           path: "/contact",
           element: <Contact />,
-        }
+        },
+        {
+          path: "/ThankYou",
+          element: <ThankYou />,
+        },
       ]
     },
   ]);
