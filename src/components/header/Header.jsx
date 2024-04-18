@@ -5,6 +5,18 @@ import {AnimatePresence, motion, useAnimationControls, useAnimation} from 'frame
 
 export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 800px)');
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+    handleMediaQueryChange(mediaQuery);
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
+
+    return () => mediaQuery.removeEventListener('change', handleMediaQueryChange);
+  }, []);
 
   const controls = useAnimation();
   const handleClick = () => {
@@ -27,14 +39,14 @@ export default function Header() {
           backgroundColor: '#F9F1DB00',
         },
         flipLeft: {
-          backgroundColor: '#F9F1DB',
+          backgroundColor: 'var(--color-background)',
         }
       }}
       animate={controls}
       
       >
       <AnimatePresence>
-      {navOpen && (
+      {navOpen && isMobile ? (<h1>mobile</h1>) : (
         <motion.div className="nav-container"
         initial={{
           translateX: '100%',
@@ -53,6 +65,8 @@ export default function Header() {
         >
           <nav>
             <ul>
+              {console.log(navOpen)}
+              <p>{navOpen}stuff</p>
               <Link to='/' >Mauricio</Link>
               <Link to='/works' >Works</Link>
               <Link to='/contact' >Contact</Link>

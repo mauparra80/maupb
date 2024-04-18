@@ -1,16 +1,15 @@
 
 .header-container {
-  position: sticky;
-  right: 50px;
+  position: fixed;
+  right: 10px;
   top: 0;
+  z-index: 999;
   
-
   display: flex;
   justify-content: end;
 
   width: 100%;
   padding: 10px 20px 5px 0;
-  background-color: var(--color-background);
 }
 
 .nav-container, .nav-button {

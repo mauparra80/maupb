@@ -22,6 +22,7 @@ export default function Works() {
       <div className="title numbered one">
           <h2>Current</h2>
       </div>
+      <p className='title-description'>I have been making wedding websites for friends, family and a few clients. While I mostly use the same template, I am trying to build upon it. I have also been using this current portfolio site to try new things like <a href="https://www.framer.com/motion/" target='_blank'>Framer-Motion</a>.</p>
       <div className="double-project-section">
         <NewProject
         mediaSource={weddingVid}
@@ -44,6 +45,7 @@ export default function Works() {
       <div className="title numbered two">
           <h2>Completed</h2>
       </div>
+      <p className='title-description'>Most of these projects have been part of my studies at <a href="https://www.theodinproject.com/" target='_blank'>The Odin Project</a>  to work on a specific skill. For this reason, they arent all perfectly rounded. You can find many more on my <a href="https://github.com/mauparra80">Github</a></p>
       <div className="double-project-section">
       <NewProject 
         mediaSource={shopVid}
@@ -61,8 +63,9 @@ export default function Works() {
         />
         
       </div>
+      <h3 id='old-completed-title'>and are some older more simple projects</h3>
 
-      <div className="old-completed-list main-section">
+      <div className="old-completed-list">
         <div className="old-completed-item">
           <NewProject 
           mediaSource={cardGameImg}
