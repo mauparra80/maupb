@@ -49,7 +49,7 @@ export default function Home() {
         <div className="content">
           <p>Hello! My name is Mauricio but people call me Mau. I am a <a href="https://ece.utdallas.edu/admissions/undergraduate-programs/computer-engineering/">hardware engineer</a> and tech teacher turned software developer. Growing up and seeing the web change has always kept me thinking about all the effort and decision making that goes into presententing ones information and product to a broad user market.<br /><br /></p>
           <p>
-            Web design is the perfect combination of art and functionality with a sprinkle deprecated features. This makes it right up my alley as an artist and work addict. <br/><br/>
+            Web design is the perfect combination of art and functionality with a sprinkle of deprecated features. This makes it right up my alley as an artist and work addict. <br/><br/>
           </p>
           <p>
             if you are a recruiter interested in what I can do, 

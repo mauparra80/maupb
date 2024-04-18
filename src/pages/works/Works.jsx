@@ -68,7 +68,7 @@ export default function Works() {
         />
         
       </div>
-      <h3 id='old-completed-title'>and are some older more simple projects</h3>
+      <h3 id='old-completed-title'>and some older more simple projects</h3>
 
       <div className="old-completed-list">
         <div className="old-completed-item">
