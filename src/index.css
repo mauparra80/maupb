@@ -39,7 +39,6 @@ body {
   overflow-x: hidden;
   background-color: var(--color-background);
 
-  border: 1px solid red;
 }
 
 h1,h2,h3 {
