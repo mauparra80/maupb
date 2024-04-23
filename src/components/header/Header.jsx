@@ -57,11 +57,11 @@ export default function Header() {
         <nav>
             <motion.ul
             initial={{
-              translateY: '-100%',
+              translateY: '200px',
               opacity: 0,
             }}
             animate={{
-              translateY: '100px',
+              translateY: '0px',
               opacity: 1.0,
             }}
             exit={{
@@ -114,7 +114,7 @@ export default function Header() {
         onClick={handleClick}
         variants={{
           initial: {
-            rotate: '0deg',
+            rotate: '180deg',
           },
           flipRight: {
             rotate: '180deg',

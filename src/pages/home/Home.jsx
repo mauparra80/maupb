@@ -1,6 +1,6 @@
 import './home.css';
 import {motion, useAnimation} from 'framer-motion';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import Buzzwords from '../../components/buzzwords/Buzzwords';
 import profilePic from '../../assets/imgs/profile-pic.png';
@@ -8,12 +8,55 @@ import linkedInPng from '../../assets/icons/linkedin.png'
 import instagramPng from '../../assets/icons/instagram.png'
 import githubPng from '../../assets/icons/github.png';
 import Projector from '../../components/Projector/Projector';
+import ContactButton from '../../components/contact-button/ContactButton';
 
+/*TODO
+- when changing page, go to top of page
+- make the currentPage in header be in global. (have to use ref or something)
+-add contacts to bottom of mau
+- finish contact page form
+
+*/ 
 
 
 export default function Home() {
   const controls = useAnimation();
+  const [buzzwordsOpen, setBuzzwordsOpen] = useState(false);
 
+  const handleBuzzwordClick = () => {
+    event.stopPropagation();
+    console.log('when blue clicked', buzzwordsOpen);
+    if (buzzwordsOpen) {
+      controls.start('normal');
+      setBuzzwordsOpen(false);
+    }
+    if (!buzzwordsOpen) {
+      controls.start('line');
+      setBuzzwordsOpen(true);
+    }
+  }
+  
+
+  useEffect(() => {
+    // Define the function inside useEffect so it captures the current state
+    const closeBuzzwords = () => {
+      console.log('anywhere clicked')
+      console.log(buzzwordsOpen);
+      if (buzzwordsOpen) {
+        console.log('list closed');
+        controls.start('normal');
+        setBuzzwordsOpen(false); // Directly set to false
+      }
+    }
+  
+    // Add the event listener
+    document.body.addEventListener('click', closeBuzzwords);
+  
+    // Cleanup function to remove the event listener
+    return () => {
+      document.body.removeEventListener('click', closeBuzzwords);
+    };
+  }, [buzzwordsOpen]);  // Depend on buzzwordsOpen to re-bind the listener
  
 
   return (
@@ -58,6 +101,7 @@ export default function Home() {
             onHoverStart={() => {controls.start('line')}}
             onHoverEnd={() => {controls.start('normal')}}
             whileHover={{cursor: 'pointer'}}
+            onClick={handleBuzzwordClick}
             > 
             here is a list of some tech buzzwords I know. <br />
             <motion.span
@@ -107,64 +151,7 @@ export default function Home() {
           <p>
             Teaching web design inspired me to go back into my tech field and explore its possibilities. After a few months of studying <a href="https://www.theodinproject.com/">The Odin Project</a>, I am now growing my web design knowledge by freelancing mostly wedding websites and other small sites for friends, family, and small businesses.
           </p>
-          <div className='contact-link-flexbox'>
-            <motion.div className="contact-link-container"
-            onHoverStart={() => controls.start('contactHovered')}
-            onHoverEnd={() => controls.start('contactNormal')}
-            >
-              <motion.div
-              variants={{
-                contactHovered: {
-                  scaleX: 1
-                },
-                contactNormal: {
-                  scaleX: 0
-                }
-              }}
-              initial='contactNormal'
-              style={{
-                position: 'absolute',
-                top: '-5px',
-                bottom: '-5px',
-                right: '-15px',
-                backgroundColor: '#4D7C80',
-                width: '110%',
-                padding: '20px',
-                transformOrigin: 'bottom',
-              }}
-              animate={controls}
-              />
-              <motion.a href=""
-              variants={{
-                contactHovered: {color: '#ffffff'},
-                contactNormal: {color: '#5F4B32'}
-              }}
-              initial='contactNormal'
-              animate={controls}
-              style={{position: 'relative', zIndex: 1}}
-              >
-                <motion.p
-                variants={{
-                  contactHovered: {color: '#ffffff'},
-                  contactNormal: {color: '#5F4B32'}
-                }}
-                >Do You Need a Website?</motion.p>
-                <motion.div
-                variants={{
-                  contactHovered: {background: '#ffffff00'},
-                  contactNormal: {background: '#FF9447'}
-                }}
-                className="contact-link-button">
-                  <motion.h3
-                  variants={{
-                    contactHovered: {color: '#ffffff'},
-                    contactNormal: {color: '#5F4B32'}
-                  }}
-                  >Contact me</motion.h3>
-                </motion.div>
-              </motion.a>
-            </motion.div>
-          </div>
+          <ContactButton/>
         </div>
       </div>
 

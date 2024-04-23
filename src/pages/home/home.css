@@ -60,8 +60,13 @@ p a {
 }
 
 .header-portrait-img img {
-  width: clamp(350px, 100%, 500px);
+  width: clamp(300px, 100%, 500px);
   padding: 0 10px 0 10px;
+}
+
+.header-content {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .grid-section  {
@@ -237,11 +242,11 @@ p a {
   .main-header {
     margin-top: 50px;
     height: 100vh;
-    margin-bottom: 0;
+    margin-bottom: 100px;
   }
   
   h1 {
-    font-size: 5rem;
+    font-size: 4.5rem;
     text-align: left;
   }
 
