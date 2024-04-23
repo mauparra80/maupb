@@ -15,7 +15,7 @@ import ContactButton from '../../components/contact-button/ContactButton';
 - make the currentPage in header be in global. (have to use ref or something)
 -add contacts to bottom of mau
 - finish contact page form
-
+- add scroll bar to buzzwords and add space to sentence
 */ 
 
 
