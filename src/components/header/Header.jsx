@@ -76,7 +76,7 @@ export default function Header() {
             </motion.ul>
         </nav>
       </div>
-      ) : (
+      ) : ( //if not mobile
         <motion.div className="nav-container padding-top-10px"
         initial={{
           translateX: '100%',
@@ -91,7 +91,6 @@ export default function Header() {
           opacity: 0,
         }}
       
-       
         >
           <nav>
             <ul>

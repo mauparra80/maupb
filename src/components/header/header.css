@@ -1,9 +1,10 @@
 
 .header-container {
   position: fixed;
-  right: 0;
+  right: 50%;
   top: 0;
   z-index: 999;
+  transform: translateX(50%);
   
   display: flex;
   justify-content: end;

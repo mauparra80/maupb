@@ -11,11 +11,9 @@ import Projector from '../../components/Projector/Projector';
 import ContactButton from '../../components/contact-button/ContactButton';
 
 /*TODO
-- when changing page, go to top of page
 - make the currentPage in header be in global. (have to use ref or something)
 -add contacts to bottom of mau
 - finish contact page form
-- add scroll bar to buzzwords and add space to sentence
 */ 
 
 
@@ -95,7 +93,7 @@ export default function Home() {
             Web design is the perfect combination of art and functionality with a sprinkle of deprecated features. This makes it right up my alley as an artist and work addict. <br/><br/>
           </p>
           <p>
-            if you are a recruiter interested in what I can do, 
+            if you are a recruiter interested in what I can do,&ensp;
              <motion.span
             className="buzzword-link"
             onHoverStart={() => {controls.start('line')}}

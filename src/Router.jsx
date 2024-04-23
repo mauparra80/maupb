@@ -6,6 +6,7 @@ import Works from "./pages/works/Works.jsx";
 import Contact from "./pages/contact/Contact.jsx";
 import ErrorPage from "./components/errors/ErrorPage.jsx";
 import ThankYou from './pages/thank-you/ThankYou.jsx'
+import ScrollToTop from "./components/ScrollToTop.js";
 
 
 const Layout = () => {
@@ -14,6 +15,7 @@ const Layout = () => {
 
   return (
     <>
+      <ScrollToTop />
       <Header />
       <Outlet />
       <Footer isHomePage={isHomePage}/>
