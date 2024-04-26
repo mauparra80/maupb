@@ -25,7 +25,7 @@ export default function Contact() {
           <textarea type="text" name="message" placeholder='You are doing everything wrong and heres why ' rows={5} />
         </div>
 
-        <button type="submit" disabled>does not work yet! sorry!</button>
+        <button type="submit" >does not work yet! sorry!</button>
       </form>
     </div>
   )

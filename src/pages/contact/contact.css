@@ -8,7 +8,7 @@
   padding-top: 10vh;
   
   /* height: calc(100vh - 200px); */
-  /* height: 100vh; */
+  height: 100vh;
  
 }
 
@@ -52,7 +52,7 @@
 
 /*******form*******/
 .contact-form {
-  visibility: hidden;
+  
  
   width: 800px;
   font-family: 'saeada','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -120,7 +120,7 @@ textarea {
   }
 
   .form-container {
-    /* height: calc(100vh + 120px); */
+    height: calc(100vh + 120px);
   }
 }
 
