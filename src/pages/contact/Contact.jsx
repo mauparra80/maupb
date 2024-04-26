@@ -18,7 +18,7 @@ export default function Contact() {
         </div>
         <div className="form-row">
           <label htmlFor="email">Email</label>
-          <input type="text" name="message" placeholder='ManJensen#1@email.com'/>
+          <input type="text" name="email" placeholder='ManJensen#1@email.com'/>
         </div>
         <div className="form-row">
           <label htmlFor="message">Message</label>

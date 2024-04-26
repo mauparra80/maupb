@@ -11,6 +11,13 @@
     <title>Maupb</title>
   </head>
   <body>
+    <!-- template form for netlify to handle -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name">
+      <input type="text" name="email">
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
