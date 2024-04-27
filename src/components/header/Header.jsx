@@ -37,6 +37,9 @@ export default function Header() {
     }
   }
 
+
+  useScrollToTop(setNavOpen,controls, isMobile);
+
   return(
     
       <motion.div className="header-container"
@@ -130,4 +133,38 @@ export default function Header() {
     
     
     )
+}
+
+const useScrollToTop = (setNavOpen,controls, isMobile) => {
+  const [isAtTop, setIsAtTop] = useState(true);
+  const[prevScrollPos, setPrevScrollPos] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY || document.documentElement.scrollTop;
+      setIsAtTop(currentScrollPos === 0);
+      console.log(currentScrollPos);
+
+      if (currentScrollPos === 0 && !isMobile) {
+        //scrolling down
+        
+        setNavOpen(true);
+        controls.start('flipRight')
+        console.log("reached the top!");
+      } else {
+        //scrolling up or at top
+        setNavOpen(false);
+        controls.start('flipLeft')
+      }
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  }, [prevScrollPos, isAtTop])
+
+  return {isAtTop};
 }
