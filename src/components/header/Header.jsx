@@ -4,14 +4,15 @@ import { Link } from "react-router-dom";
 import {AnimatePresence, motion, useAnimationControls, useAnimation} from 'framer-motion';
 
 export default function Header() {
-  const [navOpen, setNavOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [navOpen, setNavOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(true);
   const [currentPage, setCurrentPage] = useState("Mau");
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 800px)');
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
+      setNavOpen(!event.matches);
     };
     handleMediaQueryChange(mediaQuery);
     mediaQuery.addEventListener('change', handleMediaQueryChange);
@@ -39,6 +40,7 @@ export default function Header() {
 
 
   useScrollToTop(setNavOpen,controls, isMobile);
+  // console.log('navopn', navOpen);
 
   return(
     
@@ -143,18 +145,16 @@ const useScrollToTop = (setNavOpen,controls, isMobile) => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY || document.documentElement.scrollTop;
       setIsAtTop(currentScrollPos === 0);
-      console.log(currentScrollPos);
+      
 
-      if (currentScrollPos === 0 && !isMobile) {
+      if ((!isMobile) && (currentScrollPos === 0)) {
         //scrolling down
-        
         setNavOpen(true);
-        controls.start('flipRight')
-        console.log("reached the top!");
-      } else {
+        controls.start('flipLeft')
+      } else if(!isMobile){
         //scrolling up or at top
         setNavOpen(false);
-        controls.start('flipLeft')
+        controls.start('flipRight')
       }
       setPrevScrollPos(currentScrollPos);
     };

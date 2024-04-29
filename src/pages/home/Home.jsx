@@ -13,7 +13,7 @@ import ContactButton from '../../components/contact-button/ContactButton';
 /*TODO
 - make the currentPage in header be in global. (have to use ref or something)
 -add contacts to bottom of mau
-- finish contact page form
+- 
 */ 
 
 

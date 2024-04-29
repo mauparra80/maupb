@@ -98,9 +98,7 @@ hr {
 }
 
 @media (max-width: 800px) {
-  .header-container {
-    background: blue;
-  }
+  
 
   .header-button-container {
     width: 100vw;
