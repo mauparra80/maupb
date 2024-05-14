@@ -36,7 +36,7 @@ export default function Works() {
         mediaSource={maupbVid}
         isVideo={true}
         link='https://mysticmodeshop.netlify.app/'
-        projectTitle='maupb (this site)'
+        projectTitle='Maupb'
         tag1={{tag: 'React', tagColor: 'orange'}}
         tag2={{tag: 'React-Router', tagColor: 'blue'}}
         tag3={{tag: 'Framer-Motion', tagColor: 'blue'}}

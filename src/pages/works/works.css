@@ -1,7 +1,7 @@
 .main-section{
   max-width: 1300px;
   margin: auto;
-  margin-bottom: 200px;
+  margin-bottom: 350px;
   border-left: 2px solid var(--color-background-dark);
   z-index: 1;
 }
@@ -65,7 +65,7 @@ a:hover {
 
 #old-completed-title {
   margin-left: 150px;
-  margin-top: 150px;
+  margin-top: 200px;
   font-weight: 400;
 }
 
