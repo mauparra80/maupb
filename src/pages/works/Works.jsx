@@ -11,6 +11,7 @@ import rockPaperScissorsImg from '../../assets/imgs/rock-paper-scissors.png'
 import libraryImg from '../../assets/imgs/library.png'
 import todoListImg from '../../assets/imgs/todo-list.png'
 import cardGameImg from '../../assets/imgs/card-game.png'
+import festivalSpotterVid from '../../assets/videos/festivalspotter-vid.mp4'
 
 export default function Works() {
 
@@ -24,13 +25,21 @@ export default function Works() {
       </div>
       <p className='title-description'>I have been making wedding websites for friends, family and a few clients. While I mostly use the same template, I am trying to build upon it. I have also been using this current portfolio site to try new things like <a href="https://www.framer.com/motion/" target='_blank'>Framer-Motion</a>.</p>
       <div className="double-project-section">
-        <NewProject
+        {/* <NewProject
         mediaSource={weddingVid}
         isVideo={true}
         link='https://mauparra80.github.io/wedding-site/'
         projectTitle='Wedding Websites'
         tag1={{tag: 'React', tagColor: 'orange'}}
         tag2={{tag: 'Single-Page'}}
+        /> */}
+        <NewProject
+        mediaSource={festivalSpotterVid}
+        isVideo={true}
+        link='https://festivalspotter.com'
+        projectTitle='Festival Spotter'
+        tag1={{tag: 'React', tagColor: 'orange'}}
+        tag2={{tag: 'Tailwind', tagColor: 'orange'}}
         />
         <NewProject 
         mediaSource={maupbVid}
