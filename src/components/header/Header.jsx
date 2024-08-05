@@ -117,15 +117,15 @@ export default function Header() {
         className="nav-button"
         onClick={handleClick}
         variants={{
-          initial: {
-            rotate: '180deg',
-          },
-          flipRight: {
-            rotate: '180deg',
-          },
-          flipLeft: {
-            rotate: '-180deg',
-          }
+          // initial: {
+          //   rotate: '180deg',
+          // },
+          // flipRight: {
+          //   rotate: '180deg',
+          // },
+          // flipLeft: {
+          //   rotate: '-180deg',
+          // }
         }}
         initial='initial'
         animate={controls}
@@ -145,16 +145,16 @@ const useScrollToTop = (setNavOpen,controls, isMobile) => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY || document.documentElement.scrollTop;
       setIsAtTop(currentScrollPos === 0);
-      
+      console.log(currentScrollPos);
 
       if ((!isMobile) && (currentScrollPos === 0)) {
-        //scrolling down
+        //at top
         setNavOpen(true);
         controls.start('flipLeft')
       } else if(!isMobile){
-        //scrolling up or at top
-        setNavOpen(false);
+        //not at top
         controls.start('flipRight')
+        setNavOpen(false);
       }
       setPrevScrollPos(currentScrollPos);
     };
