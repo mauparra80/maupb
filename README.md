@@ -1,11 +1,45 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<table>
+<tr>
+<td>
 
-Currently, two official plugins are available:
+# Maupb
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Portfolio website for Mauricio Parra
 
 
-https://maupb.netlify.app/
+</td>
+<td align="right">
+
+[![Live Preview](./livePreview.png)]([https://maupb.com/])
+
+</td>
+</tr>
+</table>
+
+
+## Skills, Techniques, and methods practiced.
+
+- React / Vite
+- css, sass
+- Mobile first approach
+- Framer-motion for animation
+
+### Struggled on
+
+- I had some issues with framer motion and sequential animation.
+- Spacing of content
+
+### Learned
+
+- Sticking to a set color pallete
+- creating some vectorbased animations and graphics
+- a decent drop down menu
+
+
+
+### [Live Preview]([https://maupb.com/])
+
+
+
+
