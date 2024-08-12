@@ -11,7 +11,7 @@ Portfolio website for Mauricio Parra
 </td>
 <td align="right">
 
-[![Live Preview](./livePreview.png)]([https://maupb.com/])
+[![Live Preview](./livePreview.png)](https://maupb.com/)
 
 </td>
 </tr>
