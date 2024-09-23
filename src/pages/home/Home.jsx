@@ -142,14 +142,18 @@ export default function Home() {
       </div>
 
       <div className="grid-section now">
-        <div className="title numbered">
-          <h2>Now</h2>
+        <div>
+          <div className="title numbered">
+            <h2>Now</h2>
+          </div>
+          <ContactButton/>
         </div>
         <div className="content">
           <p>
-            Teaching web design inspired me to go back into my tech field and explore its possibilities. After a few months of studying <a href="https://www.theodinproject.com/">The Odin Project</a>, I am now growing my web design knowledge by freelancing mostly wedding websites and other small sites for friends, family, and small businesses.
+            Teaching web design inspired me to go back into my tech field and explore its possibilities. After a few months of studying <a href="https://www.theodinproject.com/">The Odin Project</a>, I am now growing my web design knowledge by freelancing mostly wedding websites and other small sites for friends, family, and small businesses. <br /><br />
           </p>
-          <ContactButton/>
+          <p>I'm currently volunteering as the webmaster for <a href="https://thepromiseworldwide.com/" target='__blank'>The Promise Worldwide</a>, a project under the non-profit green tech incubator, <strong>Green2Gold</strong>. Although it's a smaller startup, they're making significant strides in the recycling sector and are poised to achieve great things.</p>
+          
         </div>
       </div>
 

@@ -17,7 +17,7 @@ export default function ProjectVideo({mediaSource}) {
               loop
               playsInline
               autoPlay
-              width={600}
+              width={200}
               height={400}
               ><source src={mediaSource} type='video/mp4'/>Your browser does not support this video</motion.video>
               <motion.div className="video-background orange"

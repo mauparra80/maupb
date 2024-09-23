@@ -61,12 +61,12 @@
 .project-video {
   position: relative;
   z-index: 1;
-
 }
 
 .project-video video {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: fill;
 }
 
 .video-background {
